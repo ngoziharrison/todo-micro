@@ -1,3 +1,3 @@
 todo-micro
 
-### Basic todo microservice written in Node.js to be deployed using minukube 
+### Basic todo microservice application written in Node.js to be deployed using minukube 

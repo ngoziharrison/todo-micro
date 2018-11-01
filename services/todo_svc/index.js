@@ -13,7 +13,7 @@ function getlist(file, listname){
     return file.lists[listname]
   } else {
     console.log('Failed to find this list')
-    return 0
+    return {ok: false}
   }
 }
 

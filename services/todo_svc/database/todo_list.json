@@ -2,9 +2,9 @@
     "username": "ngozi",
     "lists": {
         "home": [
-            "Buy milk",
-            "Look for pest control service",
-            "Get a new carpet"
+            ["Buy milk", "Done"],
+            ["Look for pest control service", "Not Done"],
+            ["Get a new carpet", "Not Done"]
         ],
         "work": [
             "Complete the blogpost",
