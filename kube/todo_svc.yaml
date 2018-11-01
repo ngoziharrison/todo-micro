@@ -1,0 +1,48 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: todo_svc
+  name: todo_svc
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: todo_svc
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        run: todo_svc
+    spec:
+      containers:
+      - image: invoices_svc:v1
+        imagePullPolicy: IfNotPresent
+        name: todo_svc
+        ports:
+        - containerPort: 8080
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: todo_svc
+  name: todo_svc
+  namespace: default
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: todo_svc
+  sessionAffinity: None
+  type: ClusterIP
