@@ -34,8 +34,12 @@ app.get("/todo/list/:listname", (req, res) =>{
 
 })
 
+/*app.post('/todo/create', function(req, res) {
 
-const port =  8000
+});*/
+
+
+const port = process.env.PORT || 8080
 
 app.listen(port, () => {
   console.log(`todo_svc listening on port ${port}`)
