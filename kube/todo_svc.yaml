@@ -22,7 +22,7 @@ spec:
         run: todo_svc
     spec:
       containers:
-      - image: invoices_svc:v1
+      - image: todo_svc:v1
         imagePullPolicy: IfNotPresent
         name: todo_svc
         ports:
